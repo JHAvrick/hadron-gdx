@@ -1,0 +1,100 @@
+menu.png
+size: 564, 564
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arc
+  rotate: false
+  xy: 1, 199
+  size: 72, 288
+  orig: 72, 288
+  offset: 0, 0
+  index: -1
+confettiOne
+  rotate: false
+  xy: 515, 1
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+confettiThree
+  rotate: false
+  xy: 515, 43
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+confettiTwo
+  rotate: false
+  xy: 515, 85
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+dottedCircle
+  rotate: false
+  xy: 75, 199
+  size: 144, 144
+  orig: 144, 144
+  offset: 0, 0
+  index: -1
+dottedCube
+  rotate: false
+  xy: 75, 345
+  size: 144, 144
+  orig: 144, 144
+  offset: 0, 0
+  index: -1
+dottedHex
+  rotate: false
+  xy: 221, 199
+  size: 144, 144
+  orig: 144, 144
+  offset: 0, 0
+  index: -1
+muted
+  rotate: false
+  xy: 1, 489
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
+play
+  rotate: false
+  xy: 367, 199
+  size: 144, 144
+  split: 48, 40, 40, 40
+  pad: 36, 36, 36, 36
+  orig: 144, 144
+  offset: 0, 0
+  index: -1
+settings
+  rotate: false
+  xy: 221, 345
+  size: 144, 144
+  split: 32, 32, 32, 32
+  pad: 36, 36, 36, 36
+  orig: 144, 144
+  offset: 0, 0
+  index: -1
+title
+  rotate: false
+  xy: 1, 1
+  size: 512, 196
+  orig: 512, 196
+  offset: 0, 0
+  index: -1
+tutorial
+  rotate: false
+  xy: 367, 345
+  size: 144, 144
+  orig: 144, 144
+  offset: 0, 0
+  index: -1
+unmuted
+  rotate: false
+  xy: 75, 491
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
