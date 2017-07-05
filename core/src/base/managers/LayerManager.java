@@ -1,4 +1,4 @@
-package base;
+package base.managers;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import base.sprite.Spryte;
 
 
 /**
@@ -31,7 +33,7 @@ public class LayerManager {
         overlay = new Layer();
     }
 
-    public void addToBackground(Sprite s){
+    public void addToBackground(Spryte s){
         background.add(s);
     }
 
@@ -39,21 +41,21 @@ public class LayerManager {
         layers.put(key, new Layer());
     }
 
-    public void addToLayer(String key, Sprite s){
+    public void addToLayer(String key, Spryte s){
         if (layers.containsKey(key)){
             layers.get(key).add(s);
         }
     }
 
-    public void addToForeground(){
-
+    public void addToForeground(Spryte s){
+        foreground.add(s);
     }
 
-    public void addToUI(Sprite s){
+    public void addToUI(Spryte s){
         ui.add(s);
     }
 
-    public void addToOverlay(Sprite s){
+    public void addToOverlay(Spryte s){
         overlay.add(s);
     }
 
@@ -71,13 +73,15 @@ public class LayerManager {
     }
 }
 
-class Layer extends ArrayList<Sprite> {
+class Layer extends ArrayList<Spryte> {
 
     public Layer(){}
 
     public void draw(SpriteBatch batch){
-        for (Sprite s : this){
-            s.draw(batch);
+        for (Spryte s : this){
+            if (s.visible){
+                s.draw(batch);
+            }
         }
     }
 }

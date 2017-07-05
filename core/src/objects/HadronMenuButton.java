@@ -1,16 +1,11 @@
 package objects;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
-
-import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenAccessor;
-import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.equations.Quad;
-import base.GameState;
-import base.InputSprite;
-import base.Spryte;
+import base.state.GameState;
+import base.sprite.InputSprite;
+import base.sprite.Spryte;
 import base.input.InputEvent;
 
 /**
@@ -25,7 +20,6 @@ public class HadronMenuButton extends InputSprite {
     public HadronMenuButton(GameState stage, float x, float y, String buttonTexture, String haloTexture) {
         super(stage, x, y, stage.textures.region("menu", buttonTexture));
         this.setCenter(x, y);
-        //this.translateX(5f);
 
         halo = new Spryte(stage, this.getX(), this.getY(), stage.textures.region("menu", haloTexture));
         halo.setCenter(x,y);
@@ -36,7 +30,7 @@ public class HadronMenuButton extends InputSprite {
 
         this.fadeAlpha(0); //Make this invisible to start
         Tween.registerAccessor(HadronMenuButton.class, new MenuButtonAccessor());
-        fadeIn = Tween.to(this, 1, 1.5f).target(1).ease(Quad.INOUT);
+        fadeIn = Tween.to(this, 1, 2).target(1).ease(Quad.INOUT);
         expand = Tween.to(this, 2, 2).target(3,3,0).ease(Quad.INOUT);
 
         signals.addEventType("play");
@@ -46,6 +40,8 @@ public class HadronMenuButton extends InputSprite {
                 expand();
             }
         });
+
+
     }
 
     public void fadeIn(){

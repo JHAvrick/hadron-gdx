@@ -1,0 +1,61 @@
+tracks.png
+size: 1877, 1877
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+glowTracks_0
+  rotate: false
+  xy: 1205, 753
+  size: 353, 706
+  orig: 625, 750
+  offset: 0, 22
+  index: -1
+glowTracks_1
+  rotate: false
+  xy: 1205, 1
+  size: 269, 750
+  orig: 625, 750
+  offset: 134, 0
+  index: -1
+glowTracks_2
+  rotate: false
+  xy: 1476, 1
+  size: 208, 750
+  orig: 625, 750
+  offset: 245, 0
+  index: -1
+glowTracks_3
+  rotate: false
+  xy: 1560, 753
+  size: 176, 750
+  orig: 625, 750
+  offset: 327, 0
+  index: -1
+glowTracks_4
+  rotate: false
+  xy: 1686, 1
+  size: 154, 750
+  orig: 625, 750
+  offset: 399, 0
+  index: -1
+glowTracks_5
+  rotate: false
+  xy: 1738, 753
+  size: 138, 750
+  orig: 625, 750
+  offset: 465, 0
+  index: -1
+glowTracks_6
+  rotate: false
+  xy: 1205, 1461
+  size: 3, 3
+  orig: 625, 750
+  offset: 0, 747
+  index: -1
+tracks
+  rotate: false
+  xy: 1, 1
+  size: 1202, 1500
+  orig: 1250, 1500
+  offset: 0, 0
+  index: -1

@@ -1,13 +1,11 @@
-package base;
+package base.sprite;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector3;
 
-import base.GameState;
+import base.state.GameState;
 import base.input.Signaler;
 
 /**

@@ -8,8 +8,8 @@ import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenAccessor;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.equations.Quad;
-import base.GameState;
-import base.Spryte;
+import base.state.GameState;
+import base.sprite.Spryte;
 
 /**
  * Created by Cloud Strife on 7/3/2017.

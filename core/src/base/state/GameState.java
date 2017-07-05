@@ -1,4 +1,4 @@
-package base;
+package base.state;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
@@ -6,11 +6,15 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 import java.util.ArrayList;
 
 import aurelienribon.tweenengine.TweenManager;
+import base.managers.LayerManager;
+import base.managers.TextureCache;
+import base.audio.AudioManager;
 
 /**
  * Created by Cloud Strife on 7/2/2017.
@@ -31,7 +35,8 @@ public class GameState implements Screen {
     public TweenManager tweens;
     public LayerManager layerManager;
     public TextureCache textures;
-    public ArrayList<Spryte> updateSprites;
+    public ArrayList<base.sprite.Spryte> updateSprites;
+    public AudioManager audio;
 
     public int width, height;
     public int r, g, b, a;
@@ -42,17 +47,18 @@ public class GameState implements Screen {
         this.height = height;
         r = b = g = a = 0;
 
+        tweens = new TweenManager();
+
         camera = new OrthographicCamera();
         camera.setToOrtho(false, width, height);
         camera.position.set(width / 2, height / 2, 0);
         viewport = new ExtendViewport(width, height, camera);
 
-        tweens = new TweenManager();
-
         plexer = new InputMultiplexer();
         Gdx.input.setInputProcessor(plexer);
 
-        updateSprites = new ArrayList<Spryte>();
+        audio = new AudioManager(this);
+        updateSprites = new ArrayList<base.sprite.Spryte>();
         layerManager = new LayerManager();
         textures = new TextureCache();
     }
@@ -62,8 +68,12 @@ public class GameState implements Screen {
         plexer.addProcessor(processor);
     }
 
-    public void recievesUpdate(Spryte sprite){
+    public void recievesUpdate(base.sprite.Spryte sprite){
         updateSprites.add(sprite);
+    }
+
+    public void removeUpdate(Sprite s){
+        updateSprites.remove(s);
     }
 
     @Override
@@ -85,11 +95,6 @@ public class GameState implements Screen {
 
         //Update tweens
         tweens.update(delta);
-
-        //Draw
-        game.batch.begin();
-        layerManager.draw(this.game.batch);
-        game.batch.end();
     }
 
     public void step(){
@@ -98,7 +103,7 @@ public class GameState implements Screen {
     }
 
     public void update(){
-        for (Spryte s : updateSprites){
+        for (base.sprite.Spryte s : updateSprites){
             s.update();
         }
     }
@@ -134,5 +139,6 @@ public class GameState implements Screen {
     public void dispose() {
         System.out.println("State Dispose...");
         textures.dispose();
+        audio.disposeAll();
     }
 }

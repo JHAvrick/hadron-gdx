@@ -1,13 +1,9 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import base.GameMaster;
+import aurelienribon.tweenengine.Tween;
+import base.state.GameMaster;
 import state.MainGame;
 import state.MainMenu;
 
@@ -20,10 +16,12 @@ public class Hadron extends GameMaster {
 	public void create () {
 		batch = new SpriteBatch();
 
-		menu = new MainMenu(this, 720, 1280);
-		//main = new MainGame(this, 720, 1280);
+		Tween.setCombinedAttributesLimit(4);
 
-		setScreen(menu);
+		//menu = new MainMenu(this, 720, 1280);
+		main = new MainGame(this, 720, 1280);
+
+		setScreen(main);
 	}
 
 	@Override
