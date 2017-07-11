@@ -34,7 +34,7 @@ public class Fader extends Spryte {
 
         Tween.registerAccessor(Fader.class, new FaderAccessor());
 
-        stage.layerManager.addToOverlay(this);
+        stage.layers.addToLayer("overlay", this);
     }
 
     public void fadeIn(float duration, TweenCallback callback){

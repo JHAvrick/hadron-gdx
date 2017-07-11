@@ -9,17 +9,17 @@ import java.util.HashMap;
 
 public class Signaler {
 
-    HashMap<String, ArrayList<InputEvent>> signals;
+    HashMap<String, ArrayList<SignalCallback>> signals;
 
     public Signaler(){
-        signals = new HashMap<String, ArrayList<InputEvent>>();
+        signals = new HashMap<String, ArrayList<SignalCallback>>();
     }
 
     public void addEventType(String key){
-        signals.put(key, new ArrayList<InputEvent>());
+        signals.put(key, new ArrayList<SignalCallback>());
     }
 
-    public void on(String key, InputEvent e){
+    public void on(String key, SignalCallback e){
         if (signals.containsKey(key)){
             signals.get(key).add(e);
         }
@@ -27,8 +27,8 @@ public class Signaler {
 
     public void dispatch(String key){
         if (signals.containsKey(key)){
-            for (InputEvent e : signals.get(key)){
-                e.onInput();
+            for (SignalCallback e : signals.get(key)){
+                e.onSignal();
             }
         }
     }

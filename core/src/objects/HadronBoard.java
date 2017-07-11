@@ -29,34 +29,31 @@ public class HadronBoard {
         trackSprite.setBounds(cx, cy, trackSprite.getRegionWidth(), trackSprite.getRegionHeight());
         trackSprite.setCenterY(cy);
 
-        stage.layerManager.addLayer("mainTrack");
-        stage.layerManager.addToLayer("mainTrack", trackSprite);
+        stage.layers.addToLayer("mainTrack", trackSprite);
 
-        stage.layerManager.addLayer("tracks");
+        makeTracks();
+    }
+
+    public int getTrackRadius(int trackNumber){
+        return tracks.get(trackNumber).radius;
     }
 
     public void makeTracks(){
         int trackStartRadius = 700;
         int trackWidth = 100;
         for (int i = 0; i < 6; i++){
-            tracks.add(new Track(this.stage, i, cx, cy, trackStartRadius + (i * trackWidth)));
+            tracks.add(new Track(i, cx, cy, trackStartRadius + (i * trackWidth)));
         }
     }
 }
 
-class Track extends Spryte {
+class Track {
+    public int cx, cy, radius, trackNumber;
 
-    int cx, cy, radius, trackNumber;
-
-    public Track(GameState stage, int trackNumber, int cx, int cy, int radius) {
-        super(stage, 0, 0);
+    public Track(int trackNumber, int cx, int cy, int radius) {
+        this.trackNumber = trackNumber;
         this.radius = radius;
-        this.setAlpha(0);
-
-        setRegion(stage.textures.region("tracks", "track_" + trackNumber));
-        setBounds(getX(), getY(), getRegionWidth(), getRegionHeight());
-
-        stage.layerManager.addToLayer("tracks", this);
+        this.cx = cx;
+        this.cy = cy;
     }
-
 }

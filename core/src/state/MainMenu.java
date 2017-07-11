@@ -1,13 +1,17 @@
 package state;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
+import com.badlogic.gdx.graphics.g3d.shaders.DefaultShader;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.mygdx.game.Hadron;
 
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.TweenCallback;
 import base.state.GameState;
-import base.input.InputEvent;
+import base.input.SignalCallback;
 import objects.Fader;
 import objects.HadronMenuButton;
 import objects.HadronTitle;
@@ -22,14 +26,16 @@ public class MainMenu extends GameState {
     HadronTitle title;
     HadronMenuButton playBtn, tutorialBtn, moreBtn;
     Fader fader;
+    ShaderProgram shader, shaderRed, shaderGreen, shaderBlue;
 
     public MainMenu(Hadron game, int width, int height) {
         super(game, width, height);
-
         textures.addAtlas("menu", "images/menu.txt");
+        layers.addLayer("ui");
+        layers.addLayer("overlay");
 
         audio.addMusic("lineLost", "audio/line-lost.mp3");
-        audio.loop("lineLost");
+        //audio.loop("lineLost");
 
         title = new HadronTitle(this);
         title.introSequence.start(tweens);
@@ -51,6 +57,26 @@ public class MainMenu extends GameState {
         effect.setPosition(-width / 3, -height / 3);
         effect.start();
 
+        //-----------------------------------------------------------------------------------
+
+        ShaderProgram.pedantic = false;
+        shader = new ShaderProgram(Gdx.files.internal("shaders/rgb/rgb.vert"), Gdx.files.internal("shaders/rgb/rgb.frag"));
+        //layers.setLayerShader("ui", shader);
+
+
+        //Gdx.gl.glEnable(GL20.GL_ALPHA);
+
+
+
+        //game.batch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        //game.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        //Gdx.gl.glBlendEquation(GL20.GL_FUNC_ADD);
+        //Gdx.gl.glEnable(GL20.GL_BLEND);
+        game.batch.enableBlending();
+        game.batch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
+
+        System.out.println(shader.getLog());
+
         fader = new Fader(this, 0, 0);
         fader.fadeIn(1);
     }
@@ -59,17 +85,24 @@ public class MainMenu extends GameState {
     public void render(float delta){
         super.render(delta);
 
-        //Draw
+
+
+        //viewport.setScreenPosition(viewport.getScreenX(), viewport.getScreenY());
+        //game.batch.setShader(shader);
         game.batch.begin();
         effect.draw(game.batch, delta);
-        layerManager.draw(this.game.batch);
+        game.batch.end();
+
+        //game.batch.setShader(null);
+        game.batch.begin();
+        layers.draw(this.game.batch);
         game.batch.end();
 
     }
 
 }
 
-class StartGame implements InputEvent {
+class StartGame implements SignalCallback {
     Hadron game;
     MainMenu stage;
 
@@ -79,7 +112,7 @@ class StartGame implements InputEvent {
     }
 
     @Override
-    public void onInput() {
+    public void onSignal() {
         //game.getScreen().dispose();
         stage.audio.fade("lineLost", 0, 2);
         stage.fader.fadeOut(2, new TweenCallback() {
@@ -94,7 +127,7 @@ class StartGame implements InputEvent {
 }
 
 
-class StartTutorial implements InputEvent {
+class StartTutorial implements SignalCallback {
     Hadron game;
     MainMenu stage;
 
@@ -104,7 +137,7 @@ class StartTutorial implements InputEvent {
     }
 
     @Override
-    public void onInput() {
+    public void onSignal() {
         //game.getScreen().dispose();
         stage.fader.fadeOut(2, new TweenCallback() {
             @Override
@@ -115,7 +148,7 @@ class StartTutorial implements InputEvent {
     }
 }
 
-class StartMore implements InputEvent {
+class StartMore implements SignalCallback {
     Hadron game;
     MainMenu stage;
 
@@ -125,7 +158,7 @@ class StartMore implements InputEvent {
     }
 
     @Override
-    public void onInput() {
+    public void onSignal() {
         //game.getScreen().dispose();
         stage.fader.fadeOut(2, new TweenCallback() {
             @Override

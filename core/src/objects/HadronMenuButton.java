@@ -6,7 +6,7 @@ import aurelienribon.tweenengine.equations.Quad;
 import base.state.GameState;
 import base.sprite.InputSprite;
 import base.sprite.Spryte;
-import base.input.InputEvent;
+import base.input.SignalCallback;
 
 /**
  * Created by Cloud Strife on 7/3/2017.
@@ -24,8 +24,8 @@ public class HadronMenuButton extends InputSprite {
         halo = new Spryte(stage, this.getX(), this.getY(), stage.textures.region("menu", haloTexture));
         halo.setCenter(x,y);
 
-        stage.layerManager.addToUI(this);
-        stage.layerManager.addToUI(halo);
+        stage.layers.addToLayer("ui", this);
+        stage.layers.addToLayer("ui", halo);
         stage.recievesUpdate(this);
 
         this.fadeAlpha(0); //Make this invisible to start
@@ -34,14 +34,12 @@ public class HadronMenuButton extends InputSprite {
         expand = Tween.to(this, 2, 2).target(3,3,0).ease(Quad.INOUT);
 
         signals.addEventType("play");
-        signals.on("touchDown", new InputEvent() {
+        signals.on("touchDown", new SignalCallback() {
             @Override
-            public void onInput() {
+            public void onSignal() {
                 expand();
             }
         });
-
-
     }
 
     public void fadeIn(){

@@ -2,6 +2,7 @@ package base.managers;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -16,25 +17,10 @@ import base.sprite.Spryte;
 
 public class LayerManager {
 
-    SpriteBatch batch;
-    Layer background; //Always in the back
     LinkedHashMap<String, Layer> layers;
-    Layer foreground; //Always on top
-    Layer ui;
-    Layer overlay;
 
     public LayerManager(){
-        this.batch = batch;
-
-        background = new Layer();
         layers = new LinkedHashMap<String, Layer>();
-        foreground = new Layer();
-        ui = new Layer();
-        overlay = new Layer();
-    }
-
-    public void addToBackground(Spryte s){
-        background.add(s);
     }
 
     public void addLayer(String key){
@@ -47,41 +33,69 @@ public class LayerManager {
         }
     }
 
-    public void addToForeground(Spryte s){
-        foreground.add(s);
+    public void setLayerShader(String key, ShaderProgram shader){
+        if (layers.containsKey(key)){
+            layers.get(key).setShader(shader);
+        }
     }
 
-    public void addToUI(Spryte s){
-        ui.add(s);
-    }
-
-    public void addToOverlay(Spryte s){
-        overlay.add(s);
+    private void applyShader(Layer layer){
     }
 
     public void draw(SpriteBatch batch){
-        background.draw(batch);
-
         //Draw all the layers in between back and foreground
-        for (Map.Entry<String, Layer> layer : layers.entrySet()) {
-            layer.getValue().draw(batch);
-        }
+        for (Map.Entry<String, Layer> entry : layers.entrySet()) {
+            Layer layer = entry.getValue();
 
-        foreground.draw(batch);
-        ui.draw(batch);
-        overlay.draw(batch);
+            if (layer.hasShader()){
+                batch.end();
+
+                batch.setShader(layer.getShader());
+                batch.begin();
+                layer.draw(batch);
+                batch.end();
+
+                batch.setShader(null);
+                batch.begin();
+            } else {
+
+                layer.draw(batch);
+
+            }
+        }
     }
 }
 
 class Layer extends ArrayList<Spryte> {
 
+    public ShaderProgram shader;
+    private boolean hasShader;
+
     public Layer(){}
 
     public void draw(SpriteBatch batch){
         for (Spryte s : this){
-            if (s.visible){
+            if (s.isVisible()){
                 s.draw(batch);
             }
         }
+    }
+
+    public void setShader(ShaderProgram shader){
+        this.shader = shader;
+        this.hasShader = true;
+    }
+
+    public ShaderProgram getShader(){
+        return shader;
+    }
+
+    public void removeShaders(){
+        this.shader = null;
+        this.hasShader = false;
+    }
+
+    public boolean hasShader(){
+        return hasShader;
     }
 }

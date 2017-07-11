@@ -57,6 +57,12 @@ public class AudioManager {
         }
     }
 
+    public void playFX(String key, float volume, float pitch, float pan){
+        if (sounds.containsKey(key)){
+            sounds.get(key).play(volume, pitch, pan);
+        }
+    }
+
     public void dispose(String key){
         if (music.containsKey(key)){
 

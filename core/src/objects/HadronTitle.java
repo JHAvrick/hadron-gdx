@@ -20,9 +20,6 @@ public class HadronTitle extends Spryte {
         setCenter(stage.width / 2, stage.height);
         //setAlpha(0);
 
-        System.out.println(getOriginX());
-        System.out.println(getOriginY());
-
         leftBracket = new Spryte(stage, 0, stage.height / 1.25f, stage.textures.region("menu", "arc"));
         leftBracket.setCenter(0, stage.height / 1.25f);
 
@@ -38,9 +35,9 @@ public class HadronTitle extends Spryte {
                         .target(1, stage.height / 1.25f, stage.width / 12, stage.width - (stage.width / 12))
                         .ease(Quad.OUT);
 
-        stage.layerManager.addToUI(this);
-        stage.layerManager.addToUI(leftBracket);
-        stage.layerManager.addToUI(rightBracket);
+        stage.layers.addToLayer("ui", this);
+        stage.layers.addToLayer("ui", leftBracket);
+        stage.layers.addToLayer("ui", rightBracket);
     }
 }
 

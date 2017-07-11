@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import aurelienribon.tweenengine.Tween;
 import base.state.GameMaster;
+import state.FilterTestState;
 import state.MainGame;
 import state.MainMenu;
 
@@ -20,6 +21,8 @@ public class Hadron extends GameMaster {
 
 		//menu = new MainMenu(this, 720, 1280);
 		main = new MainGame(this, 720, 1280);
+		//filterTests = new FilterTestState(this, 720, 1280);
+
 
 		setScreen(main);
 	}
