@@ -59,8 +59,8 @@ public class MainMenu extends GameState {
 
         //-----------------------------------------------------------------------------------
 
-        ShaderProgram.pedantic = false;
-        shader = new ShaderProgram(Gdx.files.internal("shaders/rgb/rgb.vert"), Gdx.files.internal("shaders/rgb/rgb.frag"));
+        //ShaderProgram.pedantic = false;
+        //shader = new ShaderProgram(Gdx.files.internal("shaders/rgb/rgb.vert"), Gdx.files.internal("shaders/rgb/rgb.frag"));
         //layers.setLayerShader("ui", shader);
 
 
@@ -72,10 +72,10 @@ public class MainMenu extends GameState {
         //game.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         //Gdx.gl.glBlendEquation(GL20.GL_FUNC_ADD);
         //Gdx.gl.glEnable(GL20.GL_BLEND);
-        game.batch.enableBlending();
-        game.batch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        //game.batch.enableBlending();
+        //game.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 
-        System.out.println(shader.getLog());
+        //System.out.println(shader.getLog());
 
         fader = new Fader(this, 0, 0);
         fader.fadeIn(1);
@@ -88,7 +88,7 @@ public class MainMenu extends GameState {
 
 
         //viewport.setScreenPosition(viewport.getScreenX(), viewport.getScreenY());
-        //game.batch.setShader(shader);
+        game.batch.setShader(shader);
         game.batch.begin();
         effect.draw(game.batch, delta);
         game.batch.end();

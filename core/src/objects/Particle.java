@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 
 import base.input.Signaler;
 import base.state.GameState;
@@ -17,13 +17,14 @@ import base.sprite.Spryte;
 public class Particle extends Spryte {
     private final GameState stage;
     private final ParticleFactory factory;
+    public Signaler signals = new Signaler();
+    public String shape, color;
 
-    public String shape; //Shape to test against phas shape
-    public String color; //Color to test against phase color
     boolean movingUp, isResting, hasEnteredBounds, hasLeftBounds;
     float rotationRadius, cx, cy, radians, speed;
-    public Animation<TextureRegion> glow;
-    public Signaler signals = new Signaler();
+
+    ParticleEffect trail;
+    Spryte outline;
 
     public Particle(GameState stage, ParticleFactory factory, float rotationCenterX, float rotationCenterY) {
         super(stage, -100, -100);
@@ -31,6 +32,10 @@ public class Particle extends Spryte {
         this.factory = factory;
         this.cx = rotationCenterX;
         this.cy = rotationCenterY;
+        setOriginCenter();
+
+        trail = new ParticleEffect();
+        trail.load(Gdx.files.internal("trail-particles"), stage.textures.atlas("sprites"));
 
         //State
         movingUp = true;
@@ -57,8 +62,12 @@ public class Particle extends Spryte {
 
     public void start(String shape, String color, float speed, float radius){
 
+        outline = new Spryte(stage, getX(), getY(), stage.textures.atlas("sprites").findRegion(shape + "Shape"));
+
         //Start given animation
         animations.play(shape + "Glow");
+        trail.start();
+
 
         //Set state
         isResting = false;
@@ -123,7 +132,18 @@ public class Particle extends Spryte {
         setCenterY((float)(cy + Math.cos(radians) * rotationRadius));
         radians += speed;
 
-        getBoundingRectangle().set(getX(), getY(), 10, 10);
         restTest();
+
+        //Particle trail, unused at the moment
+        //trail.setPosition(getCenterX(), getCenterY());
+
+        if (outline != null) outline.setPosition(getX(), getY());
+    }
+
+    @Override
+    public void draw(Batch batch){
+        //trail.draw(batch, Gdx.graphics.getDeltaTime());
+        super.draw(batch);
+        outline.draw(batch);
     }
 }

@@ -69,7 +69,7 @@ public class MainGame extends GameState implements CollisionCallback {
     Phase currentPhase;
 
     int tierIndex = 0;
-    int phaseIndex = 0;
+    int phaseIndex = 4;
     int orbIndex = 0;
     float pitchIndex = 1;
     float pitchStep = 0;
@@ -92,7 +92,6 @@ public class MainGame extends GameState implements CollisionCallback {
         audio.addFX("tierVictory", "audio/tierVictory.ogg");
         audio.addMusic("coldwire", "audio/coldwire.mp3");
         audio.loop("coldwire");
-
 
         //ShaderProgram.pedantic = false;
         shader = new ShaderProgram(Gdx.files.internal("shaders/rgb/rgb.vert"), Gdx.files.internal("shaders/rgb/rgb.frag"));
@@ -156,8 +155,26 @@ public class MainGame extends GameState implements CollisionCallback {
 
     /* Calls tier or phase increment depending on indexes */
     private void incrementState(){
-        if (phaseIndex == 6) incrementTier();
-        else incrementPhase();
+        if (phaseIndex == 6){
+
+            incrementTier();
+
+        } else {
+
+            factory.endSequence(); //Pauses the timer and clears remaining orbs
+
+            audio.playFX("victory");
+            shapeIndicator.fadeOut();
+            colorIndicator.fadeOut();
+            longFlash.flash(2.5f, Color.WHITE, new SignalCallback() {
+                @Override
+                public void onSignal() {
+                    meter.shrink();
+                    incrementPhase();
+                }
+            });
+
+        }
     }
 
     /* Increments tier */
@@ -166,7 +183,15 @@ public class MainGame extends GameState implements CollisionCallback {
         phaseIndex = 0;
 
         setSequence("sequences/tier_" + this.tierIndex + ".json");
-        //TODO - Show tier splash
+
+        audio.playFX("tierVictory");
+        fader.fadeOut(0.5f, new TweenCallback() {
+            @Override
+            public void onEvent(int type, BaseTween<?> source) {
+
+            }
+        });
+
         //TODO - Then go to incrementPhase()
     }
 
@@ -219,7 +244,7 @@ public class MainGame extends GameState implements CollisionCallback {
         if (orbIndex == currentPhase.count){
 
             //Do end of phase stuff
-            endPhase();
+            incrementState();
 
         } else {
 

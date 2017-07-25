@@ -3,7 +3,6 @@ package base.sprite;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
@@ -18,7 +17,7 @@ import base.state.GameState;
  * This is a higher-level version of a libGDX Sprite, with extra state and management.
  */
 
-public class Spryte extends Sprite {
+public class Spryte extends Sprite implements Layerable {
 
     public GameState stage;
     public AnimationManager animations;
@@ -79,7 +78,6 @@ public class Spryte extends Sprite {
 
         stage.recievesUpdate(this);
     }
-
 
     @Override
     public void draw(Batch batch){
@@ -150,6 +148,14 @@ public class Spryte extends Sprite {
 
     public void setCollisionLocked(boolean locked){
         collisionLocked = locked;
+    }
+
+    public float getCenterX(){
+        return getX() + (getWidth() / 2);
+    }
+
+    public float getCenterY(){
+        return getY() + (getHeight() / 2);
     }
 
 }

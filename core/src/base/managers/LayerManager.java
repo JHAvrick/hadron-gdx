@@ -1,6 +1,6 @@
 package base.managers;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import base.sprite.Layerable;
 import base.sprite.Spryte;
 
 
@@ -27,9 +28,9 @@ public class LayerManager {
         layers.put(key, new Layer());
     }
 
-    public void addToLayer(String key, Spryte s){
+    public void addToLayer(String key, Layerable l){
         if (layers.containsKey(key)){
-            layers.get(key).add(s);
+            layers.get(key).add(l);
         }
     }
 
@@ -48,6 +49,7 @@ public class LayerManager {
             Layer layer = entry.getValue();
 
             if (layer.hasShader()){
+
                 batch.end();
 
                 batch.setShader(layer.getShader());
@@ -57,6 +59,7 @@ public class LayerManager {
 
                 batch.setShader(null);
                 batch.begin();
+
             } else {
 
                 layer.draw(batch);
@@ -66,15 +69,16 @@ public class LayerManager {
     }
 }
 
-class Layer extends ArrayList<Spryte> {
+
+class Layer extends ArrayList<Layerable> {
 
     public ShaderProgram shader;
     private boolean hasShader;
 
     public Layer(){}
 
-    public void draw(SpriteBatch batch){
-        for (Spryte s : this){
+    public void draw(Batch batch){
+        for (Layerable s : this){
             if (s.isVisible()){
                 s.draw(batch);
             }

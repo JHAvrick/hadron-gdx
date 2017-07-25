@@ -3,10 +3,6 @@ package objects;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.math.MathUtils;
-import com.sun.xml.internal.bind.v2.TODO;
-
-import java.text.DecimalFormat;
-
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenAccessor;
@@ -24,7 +20,6 @@ public class CountMeter extends Spryte implements TweenCallback {
 
     public Spryte fill;
     Tween grow, shrink;
-    DecimalFormat df = new DecimalFormat("###.##");
 
     public CountMeter(GameState stage){
         super(stage);

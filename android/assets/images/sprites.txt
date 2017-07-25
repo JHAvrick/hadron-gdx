@@ -1,11 +1,11 @@
 sprites.png
-size: 1036, 1036
+size: 1046, 1046
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 barIcon
   rotate: false
-  xy: 973, 307
+  xy: 445, 987
   size: 60, 50
   orig: 60, 50
   offset: 0, 0
@@ -33,91 +33,91 @@ colorBlob
   index: 2
 colorBlob
   rotate: false
-  xy: 751, 307
+  xy: 1, 571
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 3
 colorBlob
   rotate: false
-  xy: 825, 307
+  xy: 75, 571
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 4
 colorBlob
   rotate: false
-  xy: 899, 307
+  xy: 149, 571
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 5
 colorBlob
   rotate: false
-  xy: 529, 323
+  xy: 223, 571
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 6
 colorBlob
   rotate: false
-  xy: 445, 395
+  xy: 751, 307
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 7
 colorBlob
   rotate: false
-  xy: 603, 323
+  xy: 529, 323
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 8
 colorBlob
   rotate: false
-  xy: 677, 323
+  xy: 445, 395
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 9
 colorBlob
   rotate: false
-  xy: 751, 381
+  xy: 603, 323
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 10
 colorBlob
   rotate: false
-  xy: 825, 381
+  xy: 677, 323
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 11
 colorBlob
   rotate: false
-  xy: 899, 381
+  xy: 825, 307
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 12
 colorBlob
   rotate: false
-  xy: 519, 397
+  xy: 899, 307
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 13
 colorBlob
   rotate: false
-  xy: 445, 469
+  xy: 973, 307
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 14
 colorBlob
   rotate: false
-  xy: 371, 515
+  xy: 751, 381
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
@@ -222,98 +222,105 @@ container
   index: 12
 cube
   rotate: false
-  xy: 667, 397
+  xy: 973, 381
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 0
 cube
   rotate: false
-  xy: 1, 571
+  xy: 519, 397
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 1
 cube
   rotate: false
-  xy: 75, 571
+  xy: 445, 469
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 2
 cube
   rotate: false
-  xy: 149, 571
+  xy: 371, 515
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 3
 cube
   rotate: false
-  xy: 223, 571
+  xy: 297, 586
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 4
 cube
   rotate: false
-  xy: 297, 586
+  xy: 593, 397
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 5
 cube
   rotate: false
-  xy: 1, 645
+  xy: 667, 397
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 6
 cube
   rotate: false
-  xy: 75, 645
+  xy: 1, 645
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 7
 cube
   rotate: false
-  xy: 149, 645
+  xy: 75, 645
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 8
 cube
   rotate: false
-  xy: 223, 645
+  xy: 149, 645
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 9
 cube
   rotate: false
-  xy: 741, 455
+  xy: 223, 645
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 10
 cube
   rotate: false
-  xy: 519, 471
+  xy: 741, 455
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 11
 cube
   rotate: false
-  xy: 445, 543
+  xy: 519, 471
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 12
+cubeOutline
+  rotate: false
+  xy: 825, 381
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
 cubeShape
   rotate: false
-  xy: 593, 397
+  xy: 899, 381
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
@@ -423,6 +430,13 @@ hex
   orig: 72, 72
   offset: 0, 0
   index: 12
+hexOutline
+  rotate: false
+  xy: 445, 543
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
 hexShape
   rotate: false
   xy: 371, 589
@@ -467,98 +481,105 @@ numbers
   index: 5
 orb
   rotate: false
-  xy: 223, 793
+  xy: 223, 867
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 0
 orb
   rotate: false
-  xy: 223, 867
+  xy: 223, 941
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 1
 orb
   rotate: false
-  xy: 223, 941
+  xy: 741, 529
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 2
 orb
   rotate: false
-  xy: 741, 529
+  xy: 519, 545
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 3
 orb
   rotate: false
-  xy: 519, 545
+  xy: 445, 617
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 4
 orb
   rotate: false
-  xy: 445, 617
+  xy: 371, 663
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 5
 orb
   rotate: false
-  xy: 371, 663
+  xy: 297, 734
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 6
 orb
   rotate: false
-  xy: 297, 734
+  xy: 593, 545
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 7
 orb
   rotate: false
-  xy: 593, 545
+  xy: 667, 545
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 8
 orb
   rotate: false
-  xy: 667, 545
+  xy: 815, 529
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 9
 orb
   rotate: false
-  xy: 815, 529
+  xy: 889, 529
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 10
 orb
   rotate: false
-  xy: 889, 529
+  xy: 963, 529
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 11
 orb
   rotate: false
-  xy: 963, 529
+  xy: 297, 808
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 12
-orbShape
+orbOutline
   rotate: false
   xy: 149, 941
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
+orbShape
+  rotate: false
+  xy: 223, 793
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
@@ -586,112 +607,112 @@ playAgain
   index: -1
 player
   rotate: false
-  xy: 297, 808
+  xy: 297, 882
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 0
 player
   rotate: false
-  xy: 297, 882
+  xy: 297, 956
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 1
 player
   rotate: false
-  xy: 297, 956
+  xy: 741, 603
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 2
 player
   rotate: false
-  xy: 741, 603
+  xy: 519, 619
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 3
 player
   rotate: false
-  xy: 519, 619
+  xy: 445, 691
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 4
 player
   rotate: false
-  xy: 445, 691
+  xy: 371, 737
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 5
 player
   rotate: false
-  xy: 371, 737
+  xy: 593, 619
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 6
 player
   rotate: false
-  xy: 593, 619
+  xy: 667, 619
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 7
 player
   rotate: false
-  xy: 667, 619
+  xy: 815, 603
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 8
 player
   rotate: false
-  xy: 815, 603
+  xy: 889, 603
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 9
 player
   rotate: false
-  xy: 889, 603
+  xy: 963, 603
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 10
 player
   rotate: false
-  xy: 963, 603
+  xy: 371, 811
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 11
 player
   rotate: false
-  xy: 371, 811
+  xy: 371, 885
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 12
 player
   rotate: false
-  xy: 371, 885
+  xy: 371, 959
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 13
 player
   rotate: false
-  xy: 371, 959
+  xy: 445, 765
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 14
 player
   rotate: false
-  xy: 445, 765
+  xy: 445, 839
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
@@ -824,182 +845,189 @@ specialOrb
   index: 15
 tri
   rotate: false
-  xy: 445, 913
-  size: 72, 72
-  orig: 72, 72
-  offset: 0, 0
-  index: 0
-tri
-  rotate: false
-  xy: 741, 677
-  size: 72, 72
-  orig: 72, 72
-  offset: 0, 0
-  index: 1
-tri
-  rotate: false
   xy: 519, 693
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
-  index: 2
+  index: 0
 tri
   rotate: false
   xy: 593, 693
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
-  index: 3
+  index: 1
 tri
   rotate: false
   xy: 667, 693
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
-  index: 4
+  index: 2
 tri
   rotate: false
   xy: 815, 677
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
-  index: 5
+  index: 3
 tri
   rotate: false
   xy: 889, 677
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
-  index: 6
+  index: 4
 tri
   rotate: false
   xy: 963, 677
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
-  index: 7
+  index: 5
 tri
   rotate: false
   xy: 519, 767
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
-  index: 8
+  index: 6
 tri
   rotate: false
   xy: 519, 841
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
-  index: 9
+  index: 7
 tri
   rotate: false
   xy: 519, 915
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
-  index: 10
+  index: 8
 tri
   rotate: false
   xy: 593, 767
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
-  index: 11
+  index: 9
 tri
   rotate: false
   xy: 593, 841
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
+  index: 10
+tri
+  rotate: false
+  xy: 593, 915
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: 11
+tri
+  rotate: false
+  xy: 667, 767
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
   index: 12
+triOutline
+  rotate: false
+  xy: 445, 913
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
 triShape
   rotate: false
-  xy: 445, 839
+  xy: 741, 677
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: -1
 void
   rotate: false
-  xy: 593, 915
+  xy: 667, 841
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 0
 void
   rotate: false
-  xy: 667, 767
+  xy: 667, 915
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 1
 void
   rotate: false
-  xy: 667, 841
+  xy: 741, 751
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 2
 void
   rotate: false
-  xy: 667, 915
+  xy: 741, 825
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 3
 void
   rotate: false
-  xy: 741, 751
+  xy: 741, 899
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 4
 void
   rotate: false
-  xy: 741, 825
+  xy: 741, 973
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 5
 void
   rotate: false
-  xy: 741, 899
+  xy: 815, 751
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 6
 void
   rotate: false
-  xy: 815, 751
+  xy: 889, 751
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 7
 void
   rotate: false
-  xy: 889, 751
+  xy: 963, 751
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 8
 void
   rotate: false
-  xy: 963, 751
+  xy: 815, 825
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 9
 void
   rotate: false
-  xy: 815, 825
+  xy: 815, 899
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: 10
 void
   rotate: false
-  xy: 815, 899
+  xy: 815, 973
   size: 72, 72
   orig: 72, 72
   offset: 0, 0

@@ -19,12 +19,12 @@ public class Hadron extends GameMaster {
 
 		Tween.setCombinedAttributesLimit(4);
 
-		//menu = new MainMenu(this, 720, 1280);
-		main = new MainGame(this, 720, 1280);
+		menu = new MainMenu(this, 720, 1280);
+		//main = new MainGame(this, 720, 1280);
 		//filterTests = new FilterTestState(this, 720, 1280);
 
 
-		setScreen(main);
+		setScreen(menu);
 	}
 
 	@Override
